@@ -17,7 +17,12 @@ describe("sampleApp", function() {
       });
       expect(false).toEqual("should have thrown exception");
     } catch(e) {
+      expect(e.message).toMatch(/Module sample.malformed does not return its exports/);
     }
+  });
+
+  it('can combines modules into the same namespace', function() {
+    expect(moduleOne.otherMethod()).toEqual("I'm public");
   });
 });
 

@@ -1,7 +1,7 @@
 describe("modit", function() {
   require('modit');
   var util;
-  
+
   beforeEach(function() {
     util = modit.util;
   });
@@ -16,7 +16,7 @@ describe("modit", function() {
     }
     function inline() {}
     local = function() {
-    }
+    };
     expect(util.nameOf(foo)).toEqual('foo');
     expect(util.nameOf(inline)).toEqual('inline');
     //expect(util.nameOf(local)).toEqual('local');

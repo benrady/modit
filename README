@@ -1,8 +1,46 @@
 Modit.js
 
-Modit is a Javascript module library designed for testability. It encourages highly testable, decoupled, encapsulated designed.
+Modit is a Javascript module library designed for testability. It encourages highly testable, decoupled, encapsulated designed. It works in browsers and in node.js.
 
-== Installation ==
+== Using Modit ==
+
+Creating javascript modules with modit saves you a lot of boilerplate code. Compare this:
+
+if (sample === undefined) {
+  sample = {};
+}
+sample.namespace = function() {
+  function internalFunction() {
+    return "internal";
+  }
+
+  function exportedFunction() {
+    return "exported";
+  }
+  
+  var exports = {
+    exportedFunction: exportedFunction
+  };
+  return exports;
+}
+
+to this:
+
+modit('sample.namespace', function() {
+  function internalFunction() {
+    return "internal";
+  }
+
+  function exportedFunction() {
+    return "exported";
+  }
+  return this.exports(exportedFunction);
+});
+
+
+But the real power of modit comes in how modules interact. Not only is it easy to compose and combine modules, it's easy to mock out those dependencies for testing purposes.
+
+== Modit Developer Setup == 
 
 # Install node.js
 wget http://nodejs.org/dist/node-v0.1.103.tar.gz
@@ -11,14 +49,6 @@ cd node-v0.1.103
 ./configure
 make
 sudo make install
-
-== Using Modit ==
-
-Creating javascript modules with modit saves you a lot of boilerplate code. Compare this:
-
-to this:
-
-But the real power of modit comes in it's mocking library. Modit makes it very easy to mock out dependencies between modules.
 
 == Running Tests == 
 

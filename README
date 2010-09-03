@@ -1,0 +1,26 @@
+Modit.js
+
+Modit is a Javascript module library designed for testability. It encourages highly testable, decoupled, encapsulated designed.
+
+== Installation ==
+
+# Install node.js
+wget http://nodejs.org/dist/node-v0.1.103.tar.gz
+tar -xf node-v0.1.103.tar.gz
+cd node-v0.1.103
+./configure
+make
+sudo make install
+
+== Using Modit ==
+
+Creating javascript modules with modit saves you a lot of boilerplate code. Compare this:
+
+to this:
+
+But the real power of modit comes in it's mocking library. Modit makes it very easy to mock out dependencies between modules.
+
+== Running Tests == 
+
+$ gem install watchr
+$ watchr nodejs.watchr

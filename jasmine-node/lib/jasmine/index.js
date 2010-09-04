@@ -1,7 +1,7 @@
 var fs = require('fs');
 var sys = require('sys');
 
-var filename = __dirname + '/jasmine-0.10.2.js';
+var filename = __dirname + '/jasmine.js';
 global.window = {
   setTimeout: setTimeout,
   clearTimeout: clearTimeout,
@@ -40,7 +40,9 @@ jasmine.executeSpecsInFolder = function(folder, done, isVerbose, showColors){
     log: function(str){
     },
 
-    reportRunnerStarting: function(runner) {
+    reportSpecStarting: function(){},
+
+    reportStarting: function(runner) {
       sys.puts('Started');
       start = Number(new Date);
     },

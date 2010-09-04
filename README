@@ -1,6 +1,6 @@
 Modit.js
 
-Modit is a Javascript module library designed for testability. It encourages highly testable, decoupled, encapsulated designed. It works in browsers and in node.js.
+Modit is a Javascript module library designed for testability. It encourages highly testable, decoupled, encapsulated designs. It works in browsers and in node.js.
 
 == Using Modit ==
 

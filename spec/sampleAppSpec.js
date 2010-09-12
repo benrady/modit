@@ -53,6 +53,8 @@ describe("sampleApp", function() {
     // I don't think you want to do this because the dependencies
     // will be unbreakable
   });
+
+  // can access sub-spaces using this.submoduleNamespace
 });
 
 

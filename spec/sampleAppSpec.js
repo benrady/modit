@@ -18,16 +18,6 @@ describe("sampleApp", function() {
     expect(one.privateMethod).toBeUndefined();
   });
 
-  it('warns you if you dont export anything', function() {
-    try {
-      modit('sample.malformed', function() {
-      });
-      expect(false).toEqual("should have thrown exception");
-    } catch(e) {
-      expect(e.message).toMatch(/Module sample.malformed does not return its exports/);
-    }
-  });
-
   it('combines modules in the same namespace', function() {
     expect(one.otherMethod()).toEqual("I'm in one");
   });

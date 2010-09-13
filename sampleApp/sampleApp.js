@@ -8,27 +8,26 @@ modit('sample.namespaceOne', function() {
   function publicMethod() {
     return privateMethod();
   }
-
-  return this.exports(publicMethod);
+  this.exports(publicMethod);
 });
 
 modit('sample.namespaceOne', function() {
   function otherMethod() {
     return this.publicMethod();
   }
-  return this.exports(otherMethod);
+  this.exports(otherMethod);
 });
 
 modit('sample.namespaceThree', function() {
   function name() {
     return "three";
   }
-  return this.exports(name);
+  this.exports(name);
 });
 
 modit('sample.namespaceTwo', ['sample.namespaceOne', 'sample.namespaceThree'], function(one, three) {
   function twosies() {
     return one.publicMethod() + " two " + three.name();
   }
-  return this.exports(twosies);
+  this.exports(twosies);
 });

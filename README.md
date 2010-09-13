@@ -6,7 +6,7 @@ title: Modit -- Javascript Modules with Superpowers
 
 Modit is a library for creating JavaScript modules, similar to those espoused by (Dogulas Crockford)[http://javascript.crockford.com/style2.html]. It encourages highly testable, decoupled, encapsulated designs. It works in web browsers and in node.js.
 
-## Superpower #1: Less Code
+### Superpower #1: Less Code
 
 Creating javascript modules with modit saves you a lot of boilerplate code. Compare this:
 
@@ -41,13 +41,13 @@ to this:
       this.exports(exportedFunction);
     });
 
-## Superpower #2: Explicit Dependencies
+### Superpower #2: Explicit Dependencies
 
-## Superpower #3: Explicit (Conditional) Exports
+### Superpower #3: Explicit (Conditional) Exports
 
-## Superpower #4: Shared Namespaces
+### Superpower #4: Shared Namespaces
 
-## Superpower #5: Testability
+### Superpower #5: Testability
 
 == Using Modit ==
 

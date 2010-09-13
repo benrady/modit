@@ -31,3 +31,20 @@ modit('sample.namespaceTwo', ['sample.namespaceOne', 'sample.namespaceThree'], f
   }
   this.exports(twosies);
 });
+
+modit('sample.conditionalExport', ['sample.ghost'], function(ghost) {
+  var scared;
+  function scareMe() {
+    scared = true;
+    return ghost.boo();
+  }
+
+  function amIScared() {
+    return false;
+  }
+
+  if (ghost.boo) {
+    this.exports(scareMe);
+  }
+  this.exports(amIScared);
+});

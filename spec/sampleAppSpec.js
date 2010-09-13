@@ -8,6 +8,7 @@ describe("sampleApp", function() {
     win = require('specHelper');
     one = win.namespaceOne;
     two = win.namespaceTwo;
+    cond = win.conditionalExport;
   });
   
   it('exposes public methods', function() {
@@ -39,12 +40,11 @@ describe("sampleApp", function() {
     //expect(one.publicMethod).toHaveBeenCalled();
   });
 
-  it('can compose modules in modules', function() {
-    // I don't think you want to do this because the dependencies
-    // will be unbreakable
+  it('can conditionally export functions', function() {
+    expect(cond.amIScared()).toEqual(false);
+    expect(cond.scareMe).toBeUndefined();
   });
 
-  // can access sub-spaces using this.submoduleNamespace
 });
 
 

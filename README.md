@@ -9,7 +9,7 @@ Creating javascript modules with modit saves you a lot of boilerplate code. Comp
     if (sample === undefined) {
       sample = {};
     }
-    sample.namespace = function() {
+    sample.namespace = (function() {
       function internalFunction() {
         return "internal";
       }
@@ -22,7 +22,7 @@ Creating javascript modules with modit saves you a lot of boilerplate code. Comp
         exportedFunction: exportedFunction
       };
       return exports;
-    }
+    })();
 
 to this:
 

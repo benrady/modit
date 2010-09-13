@@ -14,7 +14,7 @@ describe("modit", function() {
   it('pulls function names from source code', function() {
     function foo() {
     }
-    function inline() {}
+    function inline() { foo(); }
     local = function() {
     };
     expect(util.nameOf(foo)).toEqual('foo');

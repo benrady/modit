@@ -8,7 +8,7 @@ describe("sampleApp", function() {
     win = require('specHelper');
     one = win.namespaceOne;
     two = win.namespaceTwo;
-    cond = win.conditionalExport;
+    request = win.request;
   });
   
   it('exposes public methods', function() {
@@ -41,8 +41,13 @@ describe("sampleApp", function() {
   });
 
   it('can conditionally export functions', function() {
-    expect(cond.amIScared()).toEqual(false);
-    expect(cond.scareMe).toBeUndefined();
+    expect(request.asyncUpdate).toBeDefined();
+    expect(request.openSocket).toBeUndefined();
+  });
+
+  it('keeps modules seperate', function() {
+    expect(one.alpha()).toEqual('alpha');
+    expect(one.beta()).toEqual('beta');
   });
 
 });

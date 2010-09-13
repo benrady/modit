@@ -32,19 +32,30 @@ modit('sample.namespaceTwo', ['sample.namespaceOne', 'sample.namespaceThree'], f
   this.exports(twosies);
 });
 
-modit('sample.conditionalExport', ['sample.ghost'], function(ghost) {
-  var scared;
-  function scareMe() {
-    scared = true;
-    return ghost.boo();
+modit('sample.request', function() {
+  function openSocket() {
+    return new WebSocket("ws://" + window.location.hostname);
   }
 
-  function amIScared() {
-    return false;
+  if("WebSocket" in window){ this.exports(openSocket); }
+
+  function asyncUpdate(options) {
+    $.ajax(options);
   }
 
-  if (ghost.boo) {
-    this.exports(scareMe);
-  }
-  this.exports(amIScared);
+  this.exports(asyncUpdate);
+});
+
+modit('sample.namespaceOne', function() {
+  var name = 'alpha';
+  function getName() { return name; }
+  function alpha() { return getName(); }
+  this.exports(alpha);
+});
+
+modit('sample.namespaceOne', function() {
+  var name = 'beta';
+  function getName() { return name; }
+  function beta() { return getName(); }
+  this.exports(beta);
 });

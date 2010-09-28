@@ -21,10 +21,15 @@ describe("sampleApp", function() {
 
   it('combines modules in the same namespace', function() {
     expect(one.otherMethod()).toEqual("I'm in one");
+    expect(_.keys(one)).toEqual(['publicMethod', 'otherMethod', 'alpha', 'beta']);
   });
 
-  it('can import other modules', function() {
+  it('can import other namespaces', function() {
     expect(two.twosies()).toEqual("I'm in one two three");
+  });
+
+  it('can import namespaces before they are defined', function() {
+    expect(win.before.b()).toEqual('a');
   });
 
   it('can mock out interactions with other modules by hand', function() {

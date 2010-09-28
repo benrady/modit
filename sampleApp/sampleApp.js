@@ -53,6 +53,20 @@ modit('sample.namespaceOne', function() {
   this.exports(alpha);
 });
 
+modit('sample.before', ['sample.after'], function(after) {
+  function b (arg) {
+    return after.a();
+  }
+  this.exports(b);
+});
+
+modit('sample.after', function() {
+  function a (arg) {
+    return "a";
+  }
+  this.exports(a);
+});
+
 modit('sample.namespaceOne', function() {
   var name = 'beta';
   function getName() { return name; }

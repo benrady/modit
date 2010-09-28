@@ -11,6 +11,12 @@ describe("modit", function() {
     expect(foo.bar.baz).toEqual({});
   });
 
+  it('does not overwrite existing namespaces', function() {
+    var first = modit.util.createNamespace('foo');
+    var second = modit.util.createNamespace('foo');
+    expect(first).toBe(second);
+  });
+
   it('pulls function names from source code', function() {
     function foo() {
     }

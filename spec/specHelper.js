@@ -1,9 +1,5 @@
-var sys = require('sys');
-
 global.window = global;
 global.navigator = {};
-
-var fs = require('fs');
 
 require('underscore');
 require('modit');

@@ -21,7 +21,7 @@ describe("sampleApp", function() {
 
   it('combines modules in the same namespace', function() {
     expect(one.otherMethod()).toEqual("I'm in one");
-    expect(_.keys(one)).toEqual(['publicMethod', 'otherMethod', 'alpha', 'beta']);
+    expect(_.keys(one)).toEqual(['publicMethod', 'foo', 'otherMethod', 'alpha', 'beta']);
   });
 
   it('can import other namespaces', function() {
@@ -30,6 +30,10 @@ describe("sampleApp", function() {
 
   it('can import namespaces before they are defined', function() {
     expect(win.before.b()).toEqual('a');
+  });
+
+  it('provides access to the current namespace via this', function() {
+    expect(one.foo).toEqual('thisVar');
   });
 
   it('can mock out interactions with other modules by hand', function() {

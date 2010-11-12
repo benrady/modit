@@ -2,7 +2,7 @@ modit('sample.namespaceOne', function() {
   this.foo = 'thisVar';
 
   function privateMethod() {
-    return "I'm in one";
+    return "one";
   }
 
   function publicMethod() {
@@ -32,11 +32,18 @@ modit('sample.namespaceTwo', ['sample.namespaceOne', 'sample.namespaceThree'], f
   this.exports(twosies);
 });
 
-modit('sample.namespaceTwo', ['sample.namespaceOne#publicMethod'], function(pub) {
+modit('sample.namespaceTwo', ['sample.namespaceOne#publicMethod#otherMethod'], function(pub) {
   function callPub() {
     return pub();
   }
   this.exports(callPub);
+});
+
+modit('sample.namespaceTwo', ['sample.namespaceOne#publicMethod#otherMethod'], function(pub, other) {
+  function name(myName) {
+    return pub() + ' ' + other() + ' ' + myName;
+  }
+  this.exports(name);
 });
 
 modit('sample.request', function() {

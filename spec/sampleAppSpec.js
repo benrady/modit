@@ -12,7 +12,7 @@ describe("sampleApp", function() {
   });
   
   it('exposes public methods', function() {
-    expect(one.publicMethod()).toEqual("I'm in one");
+    expect(one.publicMethod()).toEqual("one");
   });
 
   it('hides private methods', function() {
@@ -20,16 +20,20 @@ describe("sampleApp", function() {
   });
 
   it('can import a single function', function() {
-    expect(two.callPub()).toEqual("I'm in one");
+    expect(two.callPub()).toEqual("one");
+  });
+
+  it('can import multiple functions', function() {
+    expect(two.name('test')).toEqual("one one test");
   });
 
   it('combines modules in the same namespace', function() {
-    expect(one.otherMethod()).toEqual("I'm in one");
+    expect(one.otherMethod()).toEqual("one");
     expect(_.keys(one)).toEqual(['foo', 'publicMethod', 'otherMethod', 'alpha', 'beta']);
   });
 
   it('can import other namespaces', function() {
-    expect(two.twosies()).toEqual("I'm in one two three");
+    expect(two.twosies()).toEqual("one two three");
   });
 
   it('can import namespaces before they are defined', function() {

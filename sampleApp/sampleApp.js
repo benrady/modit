@@ -32,6 +32,13 @@ modit('sample.namespaceTwo', ['sample.namespaceOne', 'sample.namespaceThree'], f
   this.exports(twosies);
 });
 
+modit('sample.namespaceTwo', ['sample.namespaceOne#publicMethod'], function(pub) {
+  function callPub() {
+    return pub();
+  }
+  this.exports(callPub);
+});
+
 modit('sample.request', function() {
   function openSocket() {
     return new WebSocket("ws://" + window.location.hostname);

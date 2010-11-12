@@ -19,6 +19,10 @@ describe("sampleApp", function() {
     expect(one.privateMethod).toBeUndefined();
   });
 
+  it('can import a single function', function() {
+    expect(two.callPub()).toEqual("I'm in one");
+  });
+
   it('combines modules in the same namespace', function() {
     expect(one.otherMethod()).toEqual("I'm in one");
     expect(_.keys(one)).toEqual(['foo', 'publicMethod', 'otherMethod', 'alpha', 'beta']);

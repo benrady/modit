@@ -62,7 +62,6 @@ describe("sampleApp", function() {
     expect(one.alpha()).toEqual('alpha');
     expect(one.beta()).toEqual('beta');
   });
-
 });
 
 

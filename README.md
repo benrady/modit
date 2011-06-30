@@ -91,9 +91,9 @@ And this test will still pass:
       expect(sample.namespace.beta()).toEqual('beta');
     });
 
-### Superpower #5: Testability
+### Running tests
 
-Modit was designed from the ground up to create very decoupled, testable modules. To facilitate this, it comes with it's own [mocking framework](http://github.com/benrady/modit/blob/master/spec/moditTestSpec.js) that plays nicely with other frameworks (like the one provided by Jasmine.js)
+Modit's tests should be run with [Jezebel](https://github.com/benrady/jezebel)
 
 ### About Modit
 

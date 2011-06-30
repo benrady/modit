@@ -1,14 +1,10 @@
 describe("sampleApp", function() {
-  var win;
+  var one, two, request;
 
   beforeEach(function() {
-    // Need to find a way to force node to reload this!!!
-    // http://stackoverflow.com/questions/1972242/auto-reload-of-files-in-node-js
-    // http://groups.google.com/group/nodejs/browse_thread/thread/c9b82171d3c7aac2
-    win = require('specHelper');
-    one = win.namespaceOne;
-    two = win.namespaceTwo;
-    request = win.request;
+    one = sample.namespaceOne;
+    two = sample.namespaceTwo;
+    request = sample.request;
   });
   
   it('exposes public methods', function() {
@@ -37,7 +33,7 @@ describe("sampleApp", function() {
   });
 
   it('can import namespaces before they are defined', function() {
-    expect(win.before.b()).toEqual('a');
+    expect(sample.before.b()).toEqual('a');
   });
 
   it('provides access to the current namespace via this', function() {

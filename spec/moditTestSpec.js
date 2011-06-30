@@ -1,9 +1,5 @@
 describe("modit.mock", function() {
-  var mock;
-
-  beforeEach(function() {
-    mock = require('specHelper').mock;
-  });
+  var mock = modit.mock;
 
   describe("lets you create mock functions", function() {
     var mockFunction;
